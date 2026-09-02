@@ -1,4 +1,4 @@
-// Last updated: 9/2/2026, 11:15:44 AM
+// Last updated: 9/2/2026, 11:15:58 AM
 1public class Solution {
 2    public List<String> fullJustify(String[] words, int L) {
 3        List<String> lines = new ArrayList<String>();
