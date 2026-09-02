@@ -1,26 +1,34 @@
-// Last updated: 9/2/2026, 11:51:06 AM
-1class Solution {
-2    public boolean isPalindrome(String s) {
-3        if (s.isEmpty()) {
-4        	return true;
-5        }
-6        int start = 0;
-7        int last = s.length() - 1;
-8        while(start <= last) {
-9        	char currFirst = s.charAt(start);
-10        	char currLast = s.charAt(last);
-11        	if (!Character.isLetterOrDigit(currFirst )) {
-12        		start++;
-13        	} else if(!Character.isLetterOrDigit(currLast)) {
-14        		last--;
-15        	} else {
-16        		if (Character.toLowerCase(currFirst) != Character.toLowerCase(currLast)) {
-17        			return false;
-18        		}
-19        		start++;
-20        		last--;
-21        	}
-22        }
-23        return true;
-24    }
-25}
+// Last updated: 9/2/2026, 11:52:06 AM
+1/**
+2 * Definition for a binary tree node.
+3 * public class TreeNode {
+4 *     int val;
+5 *     TreeNode left;
+6 *     TreeNode right;
+7 *     TreeNode() {}
+8 *     TreeNode(int val) { this.val = val; }
+9 *     TreeNode(int val, TreeNode left, TreeNode right) {
+10 *         this.val = val;
+11 *         this.left = left;
+12 *         this.right = right;
+13 *     }
+14 * }
+15 */
+16class Solution {
+17    public List<Integer> preorderTraversal(TreeNode root) {
+18        List<Integer> res = new ArrayList<>();
+19
+20        preorder(root, res);
+21        return res;        
+22    }
+23
+24    private void preorder(TreeNode node, List<Integer> res) {
+25        if (node == null) {
+26            return;
+27        }
+28
+29        res.add(node.val);
+30        preorder(node.left, res);
+31        preorder(node.right, res);
+32    }    
+33}
